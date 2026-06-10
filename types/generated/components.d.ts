@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedHeader extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    header: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -45,6 +57,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
   attributes: {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaKeywords: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
     shareImage: Schema.Attribute.Media<'images'>;
   };
@@ -62,14 +75,37 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTeam extends Struct.ComponentSchema {
+  collectionName: 'components_shared_teams';
+  info: {
+    displayName: 'Scores';
+  };
+  attributes: {
+    actual: Schema.Attribute.String;
+    predicted: Schema.Attribute.String;
+    team: Schema.Attribute.String;
+  };
+}
+
+export interface SharedTimestamp extends Struct.ComponentSchema {
+  collectionName: 'components_shared_timestamps';
+  info: {
+    displayName: 'Timestamp';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.header': SharedHeader;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.team': SharedTeam;
+      'shared.timestamp': SharedTimestamp;
     }
   }
 }

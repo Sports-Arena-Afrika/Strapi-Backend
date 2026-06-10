@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_teams",
+  "info": {
+    "displayName": "Scores"
+  },
+  "options": {},
+  "attributes": {
+    "team": {
+      "type": "string"
+    },
+    "actual": {
+      "type": "string"
+    },
+    "predicted": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

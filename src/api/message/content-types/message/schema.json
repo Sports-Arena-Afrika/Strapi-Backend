@@ -20,10 +20,12 @@
       "required": true
     },
     "subject": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "message": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -2,7 +2,7 @@ name: sports-arena
 
 services:
   strapi:
-    container_name: strapi
+    container_name: sports-arena-strapi
     build: .
     image: strapi:latest
     restart: unless-stopped
@@ -23,17 +23,16 @@ services:
         condition: service_healthy
 
   strapiDB:
-    container_name: strapiDB
+    container_name: sports-arena-strapiDB
     # platform: linux/amd64  # Uncomment if you encounter platform errors on Apple Silicon
     restart: unless-stopped
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql/data/
-      #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
+      - strapi-data:/var/lib/postgresql
     ports:
       - "5432:5432"  # Exposed for local debugging tools; remove if not needed
     networks:
@@ -44,21 +43,22 @@ services:
       timeout: 5s
       retries: 5
 
-  moodle-adminer:
+  strapiAdminer:
     image: adminer:latest
-    container_name: shajara-moodle-adminer
+    container_name: sports-arena-strapiAdminer
     restart: unless-stopped
     ports:
       - "8888:8080"
     environment:
-      - ADMINER_DEFAULT_SERVER=moodle-db
+      - ADMINER_DEFAULT_SERVER=strapiDB
     networks:
-      - shajara-default
+      - strapi
     depends_on:
-      - moodle-db
+      - strapiDB
 
 volumes:
   strapi-data:
+    name: sports-arena-data
 
 networks:
   strapi:

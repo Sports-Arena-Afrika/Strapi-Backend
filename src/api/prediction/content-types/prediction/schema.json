@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "predictions",
+  "info": {
+    "singularName": "prediction",
+    "pluralName": "predictions",
+    "displayName": "Prediction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "league": {
+      "type": "string"
+    },
+    "homeTeam": {
+      "type": "component",
+      "component": "shared.team",
+      "repeatable": false
+    },
+    "awayTeam": {
+      "type": "component",
+      "component": "shared.team",
+      "repeatable": false
+    },
+    "kickoff": {
+      "type": "datetime"
+    },
+    "confidence": {
+      "type": "integer"
+    },
+    "analyst": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "predictions"
+    },
+    "insight": {
+      "type": "text"
+    }
+  }
+}

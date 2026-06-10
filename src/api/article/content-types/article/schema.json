@@ -21,10 +21,13 @@
       "targetField": "title",
       "required": true
     },
-    "excerpt": {
-      "type": "text",
-      "maxLength": 80,
-      "required": true
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "trending": {
+      "type": "boolean",
+      "default": false
     },
     "cover": {
       "type": "media",
@@ -35,27 +38,24 @@
         "images"
       ]
     },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
       "inversedBy": "articles"
     },
-    "featured": {
-      "type": "boolean",
-      "default": false
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
     },
-    "trending": {
-      "type": "boolean",
-      "default": false
+    "description": {
+      "type": "text",
+      "maxLength": 80,
+      "required": true
     },
-    "content": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
         "shared.media",
