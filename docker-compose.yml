@@ -3,64 +3,87 @@ name: sports-arena
 services:
   strapi:
     container_name: sports-arena-strapi
-    build: .
-    image: strapi:latest
-    restart: unless-stopped
-    env_file: .env  # All variables from .env are injected into the container
+    image: sports-arena/strapi:development
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # All variables from env_file are injected into the container
+    # Use .env.docker for docker specific variables
+    env_file:
+      - path: .env
+      - path: .env.docker
     volumes:
-      - ./config:/opt/app/config
-      - ./src:/opt/app/src
-      - ./package.json:/opt/package.json
-      - ./package-lock.json:/opt/package-lock.json
-      - ./.env:/opt/app/.env  # Needed because Strapi uses dotenv to read .env in development
-      - ./public/uploads:/opt/app/public/uploads
+      - type: bind
+        source: package.json
+        target: /opt/package.json
+      - type: bind
+        source: package-lock.json
+        target: /opt/package-lock.json
+      - type: bind
+        source: config
+        target: /opt/app/config
+      - type: bind
+        source: src
+        target: /opt/app/src
+      - type: bind
+        source: public/uploads
+        target: /opt/app/public/uploads
+      # Needed because Strapi uses dotenv to read .env in development
+      - type: bind
+        source: .env
+        target: /opt/app/.env
+      - type: bind
+        source: .env.docker
+        target: /opt/app/.env.docker
     ports:
       - "1337:1337"
     networks:
-      - strapi
+      - sports-arena
     depends_on:
       strapiDB:
         condition: service_healthy
 
   strapiDB:
-    container_name: sports-arena-strapiDB
-    # platform: linux/amd64  # Uncomment if you encounter platform errors on Apple Silicon
-    restart: unless-stopped
+    container_name: sports-arena-strapi-db
     image: postgres:18-alpine
+    # Uncomment if you encounter platform errors on Apple Silicon
+    # platform: linux/amd64
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql
+      - type: volume
+        source: strapi-db-data
+        target: /var/lib/postgresql
     ports:
-      - "5432:5432"  # Exposed for local debugging tools; remove if not needed
+      # Exposed for local debugging tools; remove if not needed
+      - "5432:5432"
     networks:
-      - strapi
+      - sports-arena
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}" ]
       interval: 10s
       timeout: 5s
       retries: 5
 
   strapiAdminer:
+    container_name: sports-arena-strapi-adminer
     image: adminer:latest
-    container_name: sports-arena-strapiAdminer
-    restart: unless-stopped
     ports:
       - "8888:8080"
     environment:
       - ADMINER_DEFAULT_SERVER=strapiDB
     networks:
-      - strapi
+      - sports-arena
     depends_on:
       - strapiDB
 
 volumes:
-  strapi-data:
-    name: sports-arena-data
+  strapi-db-data:
+    name: sports-arena-db-data
 
 networks:
-  strapi:
-    name: strapi
+  sports-arena:
+    name: sports-arena-network
     driver: bridge

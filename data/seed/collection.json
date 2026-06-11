@@ -1,52 +1,39 @@
 {
-  "global": {
-    "siteName": "Strapi Blog",
-    "defaultSeo": {
-      "metaTitle": "Page",
-      "metaDescription": "A blog made with Strapi",
-      "shareImage": null
-    },
-    "siteDescription": "A Blog made with Strapi",
-    "favicon": null
-  },
-  "about": {
-    "title": "About the strapi blog",
-    "blocks": [
-      {
-        "__component": "shared.quote",
-        "title": "Thelonius Monk",
-        "body": "You've got to dig it to dig it, you dig?"
-      },
-      {
-        "__component": "shared.rich-text",
-        "body": "## Dedit imago conspicuus cum capillis totidem inhibere\n\nLorem markdownum **rerum**, est limine: columbas: ab infelix hostem arbore nudis\ncrudelis. Videtur reliquit ambo ferrum dote sub amne fatis **illuc**, in magis,\nnec."
-      },
-      {
-        "__component": "shared.media",
-        "file": "coffee-art.jpg"
-      }
-    ]
-  },
   "categories": [
     {
-      "name": "news",
-      "slug": "news"
+      "name": "Football",
+      "slug": "football",
+      "description": "Latest football news, analysis and updates from the Sports Arena newsroom."
     },
     {
-      "name": "tech",
-      "slug": "tech"
+      "name": "Basketball",
+      "slug": "basketball",
+      "description": "Latest basketball news, analysis and updates from the Sports Arena newsroom."
     },
     {
-      "name": "food",
-      "slug": "food"
+      "name": "Rugby",
+      "slug": "rugby",
+      "description": "Latest rugby news, analysis and updates from the Sports Arena newsroom."
     },
     {
-      "name": "nature",
-      "slug": "nature"
+      "name": "Athletics",
+      "slug": "athletics",
+      "description": "Latest athletics news, analysis and updates from the Sports Arena newsroom."
     },
     {
-      "name": "story",
-      "slug": "story"
+      "name": "Tennis",
+      "slug": "tennis",
+      "description": "Latest tennis news, analysis and updates from the Sports Arena newsroom."
+    },
+    {
+      "name": "Boxing",
+      "slug": "boxing",
+      "description": "Latest boxing news, analysis and updates from the Sports Arena newsroom."
+    },
+    {
+      "name": "Motorsport",
+      "slug": "motorsport",
+      "description": "Latest motorsports news, analysis and updates from the Sports Arena newsroom."
     }
   ],
   "authors": [
@@ -93,7 +80,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -128,7 +118,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -163,7 +156,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -198,7 +194,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -233,7 +232,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     }

@@ -78,7 +78,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 export interface SharedTeam extends Struct.ComponentSchema {
   collectionName: 'components_shared_teams';
   info: {
-    displayName: 'Scores';
+    displayName: 'Score';
   };
   attributes: {
     actual: Schema.Attribute.String;

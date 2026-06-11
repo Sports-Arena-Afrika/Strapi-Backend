@@ -1,44 +1,52 @@
+name: sports-arena
+
 services:
   strapi:
-    container_name: strapi
+    container_name: sports-arena-strapi-production
+    image: sports-arena/strapi:latest
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile.prod
-    image: strapi:latest
-    restart: always
-    env_file: .env
+    env_file:
+      - path: .env
+      - path: .env.docker
     environment:
-      NODE_ENV: production  # Overrides the development value from .env
+      # Overrides the development value from env_file
+      NODE_ENV: production
     ports:
       - "127.0.0.1:1337:1337"
     networks:
-      - strapi
+      - sports-arena
     depends_on:
       strapiDB:
         condition: service_healthy
 
   strapiDB:
-    container_name: strapiDB
+    container_name: sports-arena-strapi-db
+    image: postgres:18-alpine
     restart: always
-    image: postgres:16-alpine
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql/data/
+      - type: volume
+        source: strapi-db-data
+        target: /var/lib/postgresql
     networks:
-      - strapi
+      - sports-arena
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}" ]
       interval: 10s
       timeout: 5s
       retries: 5
 
 volumes:
-  strapi-data:
+  strapi-db-data:
+    name: sports-arena-db-data
 
 networks:
-  strapi:
-    name: strapi
+  sports-arena:
+    name: sports-arena-network
     driver: bridge
