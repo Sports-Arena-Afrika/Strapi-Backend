@@ -20,6 +20,15 @@
       "type": "component",
       "component": "shared.header",
       "repeatable": false
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.media",
+        "shared.rich-text",
+        "shared.quote",
+        "shared.slider"
+      ]
     }
   }
 }

@@ -12,7 +12,10 @@
   "pluginOptions": {},
   "attributes": {
     "league": {
-      "type": "string"
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::league.league",
+      "inversedBy": "predictions"
     },
     "homeTeam": {
       "type": "component",
@@ -25,10 +28,12 @@
       "repeatable": false
     },
     "kickoff": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "confidence": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "analyst": {
       "type": "relation",
@@ -37,7 +42,19 @@
       "inversedBy": "predictions"
     },
     "insight": {
+      "type": "text",
+      "required": true
+    },
+    "fullInsight": {
       "type": "text"
+    },
+    "correct": {
+      "type": "boolean"
+    },
+    "featured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

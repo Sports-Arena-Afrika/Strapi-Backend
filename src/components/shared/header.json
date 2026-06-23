@@ -5,14 +5,19 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "kicker": {
       "type": "string"
     },
-    "header": {
+    "title": {
       "type": "text"
     },
     "description": {
       "type": "text"
+    },
+    "heroImage": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": false
     }
   },
   "config": {}

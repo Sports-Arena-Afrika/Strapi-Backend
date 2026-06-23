@@ -6,9 +6,10 @@ export interface SharedHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    description: Schema.Attribute.Text;
     header: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    subHeader: Schema.Attribute.Text;
+    tag: Schema.Attribute.String;
   };
 }
 

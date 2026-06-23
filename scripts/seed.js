@@ -1,5 +1,13 @@
 'use strict';
 
+// const {
+//   importGlobal,
+//   importBlog,
+//   importEvent,
+//   importAbout,
+//   importContact,
+// } = require("./lib/singleType")
+
 const fs = require('fs-extra');
 const path = require('path');
 const mime = require('mime-types');
@@ -248,12 +256,17 @@ async function importSeedData() {
     about: ['find', 'findOne'],
   });
 
-  // Create all entries
+  // // Create all collection entries
   await importCategories();
   await importAuthors();
   await importArticles();
+
+  // Create all single entries
   await importGlobal();
-  await importAbout();
+  // await importBlog();
+  // await importEvent();
+  // await importAbout();
+  // await importContact();
 }
 
 async function main() {

@@ -5,13 +5,18 @@
   },
   "options": {},
   "attributes": {
+    "abbreviation": {
+      "type": "string"
+    },
     "team": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "actual": {
-      "type": "string"
+    "predictedScore": {
+      "type": "string",
+      "required": true
     },
-    "predicted": {
+    "finalScore": {
       "type": "string"
     }
   },

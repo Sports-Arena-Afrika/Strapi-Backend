@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "homes",
+  "collectionName": "events",
   "info": {
-    "singularName": "home",
-    "pluralName": "homes",
-    "displayName": "Home"
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
   },
   "options": {
     "draftAndPublish": true

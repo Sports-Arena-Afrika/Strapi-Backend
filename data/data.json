@@ -1,0 +1,219 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "documentId": "author-john-001",
+      "name": "John Kamau",
+      "email": "john.kamau@sportsarena.co.ke",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "documentId": "author-sarah-002",
+      "name": "Sarah Achieng",
+      "email": "sarah.achieng@sportsarena.co.ke",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "documentId": "author-michael-003",
+      "name": "Michael Otieno",
+      "email": "michael.otieno@sportsarena.co.ke",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "documentId": "cat-football-001",
+      "name": "Football",
+      "slug": "football",
+      "description": "Latest football news, analysis, and match reports.",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "documentId": "cat-basketball-002",
+      "name": "Basketball",
+      "slug": "basketball",
+      "description": "NBA, local leagues, and basketball insights.",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "documentId": "cat-athletics-003",
+      "name": "Athletics",
+      "slug": "athletics",
+      "description": "Track and field competitions and athlete profiles.",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "documentId": "cat-rugby-004",
+      "name": "Rugby",
+      "slug": "rugby",
+      "description": "Rugby union and sevens coverage.",
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "updatedAt": "2026-06-01T08:00:00.000Z",
+      "publishedAt": "2026-06-01T08:00:00.000Z"
+    }
+  ],
+
+  "images": [
+    {
+      "id": 1,
+      "documentId": "img-001",
+      "alternativeText": "Football players celebrating a goal",
+      "url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018"
+    },
+    {
+      "id": 2,
+      "documentId": "img-002",
+      "alternativeText": "Basketball player dunking",
+      "url": "https://images.unsplash.com/photo-1546519638-68e109498ffc"
+    },
+    {
+      "id": 3,
+      "documentId": "img-003",
+      "alternativeText": "Athletes competing in a race",
+      "url": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
+    },
+    {
+      "id": 4,
+      "documentId": "img-004",
+      "alternativeText": "Rugby players in action",
+      "url": "https://images.unsplash.com/photo-1547347298-4074fc3086f0"
+    }
+  ],
+
+  "articles": [
+    {
+      "id": 1,
+      "documentId": "article-001",
+      "title": "Harambee Stars Secure Dramatic Victory in World Cup Qualifier",
+      "description": "Kenya's national football team secured a crucial late win to boost their qualification hopes.",
+      "slug": "harambee-stars-secure-dramatic-victory",
+      "cover": {
+        "id": 1,
+        "documentId": "img-001",
+        "alternativeText": "Football players celebrating a goal",
+        "url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018"
+      },
+      "author": {
+        "id": 1,
+        "documentId": "author-john-001",
+        "name": "John Kamau"
+      },
+      "category": {
+        "id": 1,
+        "documentId": "cat-football-001",
+        "name": "Football",
+        "slug": "football"
+      },
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "Kenya secured a dramatic 2-1 victory thanks to a stoppage-time winner that sent fans into celebration."
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Coach Reaction",
+          "body": "The players showed incredible determination and resilience."
+        }
+      ],
+      "createdAt": "2026-06-05T14:30:00.000Z",
+      "updatedAt": "2026-06-05T14:30:00.000Z",
+      "publishedAt": "2026-06-05T14:30:00.000Z"
+    },
+
+    {
+      "id": 2,
+      "documentId": "article-002",
+      "title": "Nairobi City Thunder Clinch National Basketball Championship",
+      "description": "An impressive final-quarter comeback sealed the title for Nairobi City Thunder.",
+      "slug": "nairobi-city-thunder-clinch-championship",
+      "cover": {
+        "id": 2,
+        "documentId": "img-002",
+        "alternativeText": "Basketball player dunking",
+        "url": "https://images.unsplash.com/photo-1546519638-68e109498ffc"
+      },
+      "author": {
+        "id": 2,
+        "documentId": "author-sarah-002",
+        "name": "Sarah Achieng"
+      },
+      "category": {
+        "id": 2,
+        "documentId": "cat-basketball-002",
+        "name": "Basketball",
+        "slug": "basketball"
+      },
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "The Thunder overturned a 12-point deficit to capture their first championship title in five years."
+        }
+      ],
+      "createdAt": "2026-06-04T18:00:00.000Z",
+      "updatedAt": "2026-06-04T18:00:00.000Z",
+      "publishedAt": "2026-06-04T18:00:00.000Z"
+    },
+
+    {
+      "id": 3,
+      "documentId": "article-003",
+      "title": "Kenyan Athletes Dominate Continental Championships",
+      "description": "Distance runners continued Kenya's proud tradition with multiple gold medals.",
+      "slug": "kenyan-athletes-dominate-championships",
+      "cover": {
+        "id": 3,
+        "documentId": "img-003",
+        "alternativeText": "Athletes competing in a race",
+        "url": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
+      },
+      "author": {
+        "id": 3,
+        "documentId": "author-michael-003",
+        "name": "Michael Otieno"
+      },
+      "category": {
+        "id": 3,
+        "documentId": "cat-athletics-003",
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "Kenyan athletes secured six gold medals across middle and long-distance events."
+        }
+      ],
+      "createdAt": "2026-06-03T10:15:00.000Z",
+      "updatedAt": "2026-06-03T10:15:00.000Z",
+      "publishedAt": "2026-06-03T10:15:00.000Z"
+    }
+  ],
+
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 2,
+      "total": 50
+    }
+  }
+}

@@ -7,9 +7,18 @@
   "options": {},
   "attributes": {
     "file": {
-      "allowedTypes": ["images", "files", "videos"],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "externalLink": {
+      "type": "component",
+      "component": "shared.external-link",
+      "repeatable": false
     }
   }
 }

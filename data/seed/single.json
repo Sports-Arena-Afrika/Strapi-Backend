@@ -1,30 +1,71 @@
 {
   "global": {
-    "siteName": "Strapi Blog",
+    "favicon": "favicon.png",
+    "siteName": "Sports Arena Afrika",
+    "siteDescription": "Stay updated with the latest sports news, match analysis, transfer updates, and trending stories from Kenya and around the world. Sports Arena delivers fast, reliable, and engaging sports coverage.",
     "defaultSeo": {
-      "metaTitle": "Page",
-      "metaDescription": "A blog made with Strapi",
+      "metaTitle": "Sports Arena — Independent Sports News, Stories, Analysis & Updates",
+      "metaDescription": "Get breaking sports news, match reports, transfer updates, and expert analysis covering local and international sports.",
+      "metaKeywords": "sports news, football news, basketball news, athletics news, transfer news, Kenya sports, sports updates, match analysis, Sports Arena",
+      "shareImage": "default-image.png"
+    }
+  },
+  "blog": {
+    "seo": {
+      "metaTitle": "Latest News — Sports Arena",
+      "metaDescription": "Sports news, analysis, and long-form features across every league.",
+      "metaKeywords": null,
       "shareImage": null
     },
-    "siteDescription": "A Blog made with Strapi",
-    "favicon": null
+    "header": {
+      "tag": "Newsroom",
+      "header": "All the latest news",
+      "subHeader": "Reporting, analysis, and editorial features — refreshed throughout the day.",
+      "heroImage": null
+    }
+  },
+  "event": {
+    "seo": {
+      "metaTitle": "Predictions — Sports Arena",
+      "metaDescription": "Expert score predictions, confidence ratings, and analyst insight across every major league.",
+      "metaKeywords": null,
+      "shareImage": null
+    },
+    "header": {
+      "tag": "Sports Arena Forecast",
+      "header": "Score Predictions",
+      "subHeader": "Our analysts call every matchup of the week — scores, confidence ratings, and the reasoning behind the pick.",
+      "heroImage": null
+    }
   },
   "about": {
-    "title": "About the strapi blog",
-    "blocks": [
-      {
-        "__component": "shared.quote",
-        "title": "Thelonius Monk",
-        "body": "You've got to dig it to dig it, you dig?"
-      },
-      {
-        "__component": "shared.rich-text",
-        "body": "## Dedit imago conspicuus cum capillis totidem inhibere\n\nLorem markdownum **rerum**, est limine: columbas: ab infelix hostem arbore nudis\ncrudelis. Videtur reliquit ambo ferrum dote sub amne fatis **illuc**, in magis,\nnec."
-      },
-      {
-        "__component": "shared.media",
-        "file": "coffee-art.jpg"
-      }
-    ]
+    "seo": {
+      "metaTitle": "About — Sports Arena",
+      "metaDescription": "Sports Arena is an independent sports media startup covering the moments that matter.",
+      "metaKeywords": null,
+      "shareImage": null
+    },
+    "header": {
+      "tag": "About Sports Arena",
+      "header": "A newsroom for the people who never stopped watching.",
+      "subHeader": "We're a team of passionate sports journalists dedicated to bringing you the best coverage from across the sporting world.",
+      "heroImage": null
+    },
+    "blocks": []
+  },
+  "contact": {
+    "seo": {
+      "metaTitle": "Contact — Sports Arena",
+      "metaDescription": "Get in touch with the Sports Arena newsroom — tips, partnerships, and press inquiries.",
+      "metaKeywords": null,
+      "shareImage": null
+    },
+    "header": {
+      "tag": "Contact Us",
+      "header": "Get In Touch, Pitch a story, Say hello.",
+      "subHeader": "Whether you have a story tip to share, feedback, or want to work together, the newsroom is open.",
+      "heroImage": null
+    },
+    "blocks": []
   }
 }

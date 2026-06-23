@@ -11,7 +11,14 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "externalLinks": {
+      "type": "component",
+      "component": "shared.external-link",
+      "repeatable": true
     }
   }
 }

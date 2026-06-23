@@ -12,6 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "avatar": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": false
+    },
     "name": {
       "type": "string",
       "required": true
@@ -20,15 +25,8 @@
       "type": "string",
       "required": true
     },
-    "avatar": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
+    "specialty": {
+      "type": "string"
     },
     "articles": {
       "type": "relation",

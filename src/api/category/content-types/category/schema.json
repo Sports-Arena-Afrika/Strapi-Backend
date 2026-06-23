@@ -29,6 +29,12 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "category"
+    },
+    "leagues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::league.league",
+      "mappedBy": "category"
     }
   }
 }

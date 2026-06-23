@@ -4,6 +4,7 @@ services:
   strapi:
     container_name: sports-arena-strapi
     image: sports-arena/strapi:development
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
@@ -46,6 +47,7 @@ services:
   strapiDB:
     container_name: sports-arena-strapi-db
     image: postgres:18-alpine
+    restart: unless-stopped
     # Uncomment if you encounter platform errors on Apple Silicon
     # platform: linux/amd64
     environment:
@@ -70,6 +72,7 @@ services:
   strapiAdminer:
     container_name: sports-arena-strapi-adminer
     image: adminer:latest
+    restart: unless-stopped
     ports:
       - "8888:8080"
     environment:
@@ -80,6 +83,8 @@ services:
       - strapiDB
 
 volumes:
+  strapi-data:
+    name: sports-arena-strapi-data
   strapi-db-data:
     name: sports-arena-db-data
 

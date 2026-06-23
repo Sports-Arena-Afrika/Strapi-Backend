@@ -21,22 +21,23 @@
       "targetField": "title",
       "required": true
     },
-    "featured": {
-      "type": "boolean",
-      "default": false
+    "description": {
+      "type": "text",
+      "maxLength": 80,
+      "required": true
+    },
+    "readTime": {
+      "type": "integer"
     },
     "trending": {
       "type": "boolean",
+      "required": true,
       "default": false
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
+    "featured": {
+      "type": "boolean",
       "required": true,
-      "allowedTypes": [
-        "files",
-        "images"
-      ]
+      "default": false
     },
     "author": {
       "type": "relation",
@@ -50,9 +51,10 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
-    "description": {
-      "type": "text",
-      "maxLength": 80,
+    "cover": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": false,
       "required": true
     },
     "blocks": {
@@ -64,11 +66,6 @@
         "shared.slider"
       ],
       "required": true
-    },
-    "seo": {
-      "type": "component",
-      "component": "shared.seo",
-      "repeatable": false
     }
   }
 }
