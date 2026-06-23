@@ -1,15 +1,27 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedExternalLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_external_links';
+  info: {
+    displayName: 'External Link';
+  };
+  attributes: {
+    alternativeText: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedHeader extends Struct.ComponentSchema {
   collectionName: 'components_shared_headers';
   info: {
     displayName: 'Header';
   };
   attributes: {
-    header: Schema.Attribute.Text;
-    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    subHeader: Schema.Attribute.Text;
-    tag: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    heroImage: Schema.Attribute.Component<'shared.media', false>;
+    kicker: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -20,6 +32,7 @@ export interface SharedMedia extends Struct.ComponentSchema {
     icon: 'file-video';
   };
   attributes: {
+    externalLink: Schema.Attribute.Component<'shared.external-link', false>;
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
@@ -60,7 +73,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     metaKeywords: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    shareImage: Schema.Attribute.Component<'shared.media', false>;
   };
 }
 
@@ -72,6 +85,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
+    externalLinks: Schema.Attribute.Component<'shared.external-link', true>;
     files: Schema.Attribute.Media<'images', true>;
   };
 }
@@ -82,23 +96,17 @@ export interface SharedTeam extends Struct.ComponentSchema {
     displayName: 'Score';
   };
   attributes: {
-    actual: Schema.Attribute.String;
-    predicted: Schema.Attribute.String;
-    team: Schema.Attribute.String;
+    abbreviation: Schema.Attribute.String;
+    finalScore: Schema.Attribute.String;
+    predictedScore: Schema.Attribute.String & Schema.Attribute.Required;
+    team: Schema.Attribute.String & Schema.Attribute.Required;
   };
-}
-
-export interface SharedTimestamp extends Struct.ComponentSchema {
-  collectionName: 'components_shared_timestamps';
-  info: {
-    displayName: 'Timestamp';
-  };
-  attributes: {};
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.external-link': SharedExternalLink;
       'shared.header': SharedHeader;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
@@ -106,7 +114,6 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.team': SharedTeam;
-      'shared.timestamp': SharedTimestamp;
     }
   }
 }
