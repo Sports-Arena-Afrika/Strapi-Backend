@@ -21,13 +21,14 @@
       "targetField": "title",
       "required": true
     },
-    "description": {
+    "excerpt": {
       "type": "text",
-      "maxLength": 80,
+      "maxLength": 250,
       "required": true
     },
     "readTime": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "trending": {
       "type": "boolean",
@@ -38,18 +39,6 @@
       "type": "boolean",
       "required": true,
       "default": false
-    },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
     },
     "cover": {
       "type": "component",
@@ -66,6 +55,22 @@
         "shared.slider"
       ],
       "required": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }

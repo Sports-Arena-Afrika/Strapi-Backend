@@ -24,17 +24,10 @@
     "description": {
       "type": "text"
     },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
-    },
-    "leagues": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::league.league",
-      "mappedBy": "category"
+    "heroImage": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": false
     }
   }
 }

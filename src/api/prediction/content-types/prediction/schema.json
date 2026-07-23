@@ -11,11 +11,25 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "league": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "analyst": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::league.league",
+      "target": "api::analyst.analyst",
       "inversedBy": "predictions"
+    },
+    "league": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::league.league"
     },
     "homeTeam": {
       "type": "component",
@@ -34,12 +48,6 @@
     "confidence": {
       "type": "integer",
       "required": true
-    },
-    "analyst": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "predictions"
     },
     "insight": {
       "type": "text",

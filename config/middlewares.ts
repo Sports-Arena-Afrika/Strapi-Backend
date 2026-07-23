@@ -27,6 +27,7 @@ const config: Core.Config.Middlewares = [
       origin: [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'http://192.168.100.3:3000',
         'https://sports-arena-frontend-alpha.vercel.app/',
       ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],

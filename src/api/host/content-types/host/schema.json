@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hosts",
+  "info": {
+    "singularName": "host",
+    "pluralName": "hosts",
+    "displayName": "Host"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayName": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "podcasts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::podcast.podcast",
+      "inversedBy": "hosts"
+    }
+  }
+}

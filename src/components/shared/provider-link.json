@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_provider_links",
+  "info": {
+    "displayName": "Provider Link"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "spotify",
+        "apple",
+        "youtube",
+        "amazon",
+        "rss"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "embedUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

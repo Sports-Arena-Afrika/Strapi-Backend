@@ -7,17 +7,9 @@
   },
   "options": {},
   "attributes": {
-    "files": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "externalLinks": {
+    "slides": {
       "type": "component",
-      "component": "shared.external-link",
+      "component": "shared.media",
       "repeatable": true
     }
   }

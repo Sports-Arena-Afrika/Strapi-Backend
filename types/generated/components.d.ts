@@ -33,7 +33,22 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     externalLink: Schema.Attribute.Component<'shared.external-link', false>;
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    strapiFile: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedProviderLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_provider_links';
+  info: {
+    displayName: 'Provider Link';
+  };
+  attributes: {
+    embedUrl: Schema.Attribute.String;
+    platform: Schema.Attribute.Enumeration<
+      ['spotify', 'apple', 'youtube', 'amazon', 'rss']
+    > &
+      Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -71,9 +86,9 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
   attributes: {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaImage: Schema.Attribute.Component<'shared.media', false>;
     metaKeywords: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Component<'shared.media', false>;
   };
 }
 
@@ -85,21 +100,20 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
-    externalLinks: Schema.Attribute.Component<'shared.external-link', true>;
-    files: Schema.Attribute.Media<'images', true>;
+    slides: Schema.Attribute.Component<'shared.media', true>;
   };
 }
 
 export interface SharedTeam extends Struct.ComponentSchema {
   collectionName: 'components_shared_teams';
   info: {
-    displayName: 'Score';
+    displayName: 'Team Score';
   };
   attributes: {
     abbreviation: Schema.Attribute.String;
     finalScore: Schema.Attribute.String;
     predictedScore: Schema.Attribute.String & Schema.Attribute.Required;
-    team: Schema.Attribute.String & Schema.Attribute.Required;
+    teamName: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -109,6 +123,7 @@ declare module '@strapi/strapi' {
       'shared.external-link': SharedExternalLink;
       'shared.header': SharedHeader;
       'shared.media': SharedMedia;
+      'shared.provider-link': SharedProviderLink;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;

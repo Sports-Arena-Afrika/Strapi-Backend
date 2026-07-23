@@ -12,33 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "avatar": {
-      "type": "component",
-      "component": "shared.media",
-      "repeatable": false
-    },
-    "name": {
+    "displayName": {
       "type": "string",
       "required": true
     },
-    "email": {
-      "type": "string",
-      "required": true
-    },
-    "specialty": {
-      "type": "string"
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "author"
-    },
-    "predictions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::prediction.prediction",
-      "mappedBy": "analyst"
     }
   }
 }

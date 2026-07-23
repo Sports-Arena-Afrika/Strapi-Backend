@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "analysts",
+  "info": {
+    "singularName": "analyst",
+    "pluralName": "analysts",
+    "displayName": "Analyst"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayName": {
+      "type": "string",
+      "required": true
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "predictions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prediction.prediction",
+      "mappedBy": "analyst"
+    }
+  }
+}

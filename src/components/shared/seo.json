@@ -19,7 +19,7 @@
     "metaKeywords": {
       "type": "text"
     },
-    "shareImage": {
+    "metaImage": {
       "type": "component",
       "component": "shared.media",
       "repeatable": false

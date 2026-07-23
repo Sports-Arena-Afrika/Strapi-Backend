@@ -7,7 +7,7 @@
     "displayName": "League"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -28,15 +28,8 @@
     },
     "category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "leagues"
-    },
-    "predictions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::prediction.prediction",
-      "mappedBy": "league"
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }
