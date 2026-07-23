@@ -221,18 +221,18 @@ export const podcasts: Podcast[] = [
   },
 ]
 
-export async function getPodcasts(): Promise<Podcast[]> {
-  const useApi = import.meta.env.VITE_USE_API === 'true'
-  const hostname = import.meta.env.VITE_API_HOSTNAME as string | undefined
+// export async function getPodcasts(): Promise<Podcast[]> {
+//   const useApi = import.meta.env.VITE_USE_API === 'true'
+//   const hostname = import.meta.env.VITE_API_HOSTNAME as string | undefined
 
-  if (!useApi || !hostname) return podcasts
+//   if (!useApi || !hostname) return podcasts
 
-  try {
-    const res = await fetch(`${hostname.replace(/\/$/, '')}/podcasts`)
-    if (!res.ok) throw new Error(`Failed to fetch podcasts: ${res.status}`)
-    return (await res.json()) as Podcast[]
-  } catch (err) {
-    console.error('[getPodcasts] API fetch failed, using fallback data', err)
-    return podcasts
-  }
-}
+//   try {
+//     const res = await fetch(`${hostname.replace(/\/$/, '')}/podcasts`)
+//     if (!res.ok) throw new Error(`Failed to fetch podcasts: ${res.status}`)
+//     return (await res.json()) as Podcast[]
+//   } catch (err) {
+//     console.error('[getPodcasts] API fetch failed, using fallback data', err)
+//     return podcasts
+//   }
+// }
